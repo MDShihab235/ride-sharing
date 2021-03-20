@@ -1,0 +1,22 @@
+[
+    {
+      "id": 1,
+      "picture": "https://i.pinimg.com/originals/b8/b0/32/b8b032410b2214d779d9ad7b1d3d16e0.jpg",
+      "name": "BIKE"
+    },
+    {
+      "id": 2,
+      "picture": "https://img.freepik.com/free-vector/modern-blue-urban-adventure-suv-vehicle-illustration_1344-205.jpg?size=338&ext=jpg",
+      "name": "CAR"
+    },
+    {
+      "id": 3,
+      "picture": "https://c8.alamy.com/comp/F81D4E/london-red-bus-illustration-isolated-on-white-background-F81D4E.jpg",
+      "name": "BUS"
+    },
+    {
+      "id": 4,
+      "picture": "https://previews.123rf.com/images/hamara/hamara1503/hamara150300033/37087084-modern-high-speed-train-isolated-on-white-background-eps10-vector-.jpg",
+      "name": "TRAIN"
+    }
+  ]
