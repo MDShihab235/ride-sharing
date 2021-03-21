@@ -8,26 +8,21 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     const [vehicles, setVehicles] = useState([]);
-    const [cart, setCart] = useState([]);
+    
     useEffect(() => {
-        setVehicles(vehiclesData);
-        console.log(vehiclesData);
+        setVehicles(vehiclesData[0]);
     }, []);
 
-    const handleAddVehicles = (vehicle) =>{
-        const newCart = [...cart, vehicle];
-        setCart(newCart);
-        console.log('vehicle added', vehicle);
-    }
     return (
         <div className="App">
             <h1>This is home</h1>
+            
 
-        <div className="d-flex flex-row">
-            {
-                vehicles.map(vehicle => <Link to={`/destination/from/${vehicle.name}`}><Cart vehicle={vehicle} key={vehicle.id} handleAddVehicles={handleAddVehicles} ></Cart></Link>)
-            }
-        </div>
+            <div className="d-flex flex-row">
+                {
+                    vehiclesData.map(vehicle => <Link to={`/destination/from/${vehicle.name}`}><Cart vehicle={vehicle} key={vehicle.id} ></Cart></Link>)
+                }
+            </div>
         </div>
     );
 };

@@ -69,10 +69,12 @@ const Login = () => {
           firebase.auth().signInWithEmailAndPassword(user.email, user.password)
           .then(res => {
             console.log(res);
-            const createdUser = {...user};
+            const createdUser = {...loggedInUser};
             createdUser.isSignedIn = true;
             createdUser.error = '';
             setUser(createdUser);
+            setLoggedInUser(createdUser);
+            history.replace(from);
           })
           .catch(err => {
             console.log(err.message);
@@ -86,17 +88,40 @@ const Login = () => {
         event.target.reset();
     }
 
+    const is_valid_email = email =>  /(.+)@(.+){2,}\.(.+){2,}/.test(email); 
+    const hasNumber = input => /\d{1}/.test(input);
+
+    const handleChange = event =>{
+        const newUserInfo = {
+          ...user
+        };
+        let isValid = true;
+        if(event.target.name === 'email'){
+          isValid = is_valid_email(event.target.value);
+          console.log(isValid);
+        }
+        if(event.target.name === "password"){
+          isValid = event.target.value.length > 6 && hasNumber(event.target.value);
+          console.log(isValid);
+        }
+    
+        newUserInfo[event.target.name] = event.target.value;
+        newUserInfo.isValid = isValid;
+        setUser(newUserInfo);
+      }
+  
+
 
     return (
         <div style={{textAlign:"center"}}>
             <h4>Login</h4>
             <form onSubmit={signInUser}>
                 
-                <input type="text" name="email" placeholder=" Email" required/>
+                <input type="text" onChange={handleChange} name="email" placeholder=" Email" required/>
                 <br/>
-                <input type="password" name="password" placeholder="Password" required/>
+                <input type="password" onChange={handleChange} name="password" placeholder="Password" required/>
                 <br/>
-                <input type="submit"  value="submit"/>
+                <input type="submit"  value="Sign In"/>
             </form>
             <p>Don't have an account? <Link to='/create-account'> Create an account </Link></p>
             <button onClick={handleSignInGoogle}>Continue with Google</button>

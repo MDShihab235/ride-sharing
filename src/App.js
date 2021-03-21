@@ -67,7 +67,7 @@ function App() {
           <Route path='/login'>
             <Login></Login>
           </Route>
-          <PrivateRoute path='/destination'>
+          <PrivateRoute path='/destination/from/:ride'>
             <Destination></Destination>
           </PrivateRoute>
           <Route path='/blog'>
