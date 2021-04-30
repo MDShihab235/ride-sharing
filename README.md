@@ -5,3 +5,4 @@ my website live link: https://affinity-riders.web.app/
 2. And show the destination for passangers based on his or her choosing vehicle.
 3. Basically I added four riding vehicle system.
 4. It show about date and map based on selected destination about user.
+Used technologies: React.js, bootstrap, HTML, CSS, JavaScript.
